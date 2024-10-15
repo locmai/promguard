@@ -12,9 +12,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Containerfile --tag ghcr.io/${{ github.repository }}:${GITHUB_REF#refs/tags/promwatch-}
+      run: docker build . --file Containerfile --tag ghcr.io/${{ github.repository }}:${GITHUB_REF#refs/tags/promguard-}
     - name: Login to Registry
       run: docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Publish to Registry
-      run: docker push ghcr.io/${{ github.repository }}:${GITHUB_REF#refs/tags/promwatch-}
+      run: docker push ghcr.io/${{ github.repository }}:${GITHUB_REF#refs/tags/promguard-}
 
