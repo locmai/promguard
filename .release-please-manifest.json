@@ -1,4 +1,4 @@
 {
   ".": "0.2.5",
-  "charts/promguard-helm": "1.0.6"
+  "charts/promguard-helm": "1.0.7"
 }
