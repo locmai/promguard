@@ -2,7 +2,7 @@ apiVersion: v2
 name: promguard-helm
 version: 1.0.5
 appVersion: v0.1.0
-description: A Helm chart to deploy locmai/promguard
+description: A Helm chart to deploy PromGuard
 home: https://github.com/locmai/promguard
 sources:
   - https://github.com/locmai/promguard
