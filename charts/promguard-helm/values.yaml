@@ -1,0 +1,38 @@
+replicas: 1
+
+image:
+  repository: ghcr.io/locmai/promguard
+  tag: v0.2.4
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+nodeSelector: {}
+affinity: {}
+tolerations: {}
+resources: {}
+podLabels: {}
+
+podAnnotations: {}
+config: {}
+  # prometheus:
+  #   instances:
+  #     - name: "prometheus-1"
+  #       url: "https://prometheus.demo.do.prometheus.io"
+  #     - name: "prometheus-2"
+  #       url: "https://prometheus.demo.do.prometheus.io"
+  #       limit: 15
+
+podMonitor:
+  # The pod monitor by default scrapes the metrics port.
+  # The metrics port needs to be enabled as well.
+  enabled: true
+  metricsEndpoints:
+    - port: http
+      interval: 15s
+
+  # additional labels for the PodMonitor
+  extraLabels: {}
+  #   release: kube-prometheus-stack

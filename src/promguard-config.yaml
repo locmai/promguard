@@ -1,0 +1,8 @@
+prometheus:
+  instances:
+    - name: "prometheus-1"
+      url: "https://prometheus.demo.do.prometheus.io"
+    - name: "prometheus-2"
+      url: "https://prometheus.demo.do.prometheus.io"
+      limit: 15
+

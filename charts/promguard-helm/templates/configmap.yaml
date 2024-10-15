@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "promguard.name" . }}
+  labels:
+    {{- include "promguard.labels" . | nindent 4 }}
+data:
+  promguard-config.yaml: |
+    {{- toYaml .Values.config | nindent 4 }}

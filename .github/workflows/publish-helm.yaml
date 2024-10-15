@@ -1,0 +1,36 @@
+on:
+  release:
+    types: [published]
+
+
+env:
+  RELEASE_TAG: ${{ github.ref_name }}
+
+name: publish-helm-chart 
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.event.release.tag_name, 'promguard-v')"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4.2.0
+        id: setup_helm
+      - name: Get Chart name
+        id: get_chart_name
+        run: |
+          echo ${{ env.RELEASE_TAG }}
+          version=${{ env.RELEASE_TAG }}
+          chart_name=$(echo "$version" | sed 's/-v.*$//')
+          version=$(echo "$version" | sed -E 's/.*-v([0-9]+\.[0-9]+\.[0-9]+)$/\1/')
+          echo "$chart_name"
+          echo "$version"
+          echo "chart_name=$chart_name" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Publish
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | helm registry login ghcr.io/locmai --username locmai --password-stdin
+          helm dependency build ./charts/${{ steps.get_chart_name.outputs.chart_name }}
+          helm package ./charts/${{ steps.get_chart_name.outputs.chart_name }}
+          helm push ${{ steps.get_chart_name.outputs.chart_name }}-${{ steps.get_chart_name.outputs.version }}.tgz oci://ghcr.io/locmai
