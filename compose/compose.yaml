@@ -28,6 +28,8 @@ services:
     build:
       context: ..
       dockerfile: Containerfile
+      platforms:
+        - "linux/amd64"
     container_name: promguard
     depends_on:
       - prometheus
