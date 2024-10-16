@@ -151,7 +151,7 @@ pub async fn metrics_handler(State(state): State<Arc<Mutex<AppState>>>) -> impl 
         .status(StatusCode::OK)
         .header(
             CONTENT_TYPE,
-            "application/openmetrics-text; version=1.0.0; charset=utf-8",
+            "text/plain; application/openmetrics-text; version=1.0.0; charset=utf-8",
         )
         .body(Body::from(buffer))
         .unwrap()
