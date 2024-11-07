@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8](https://github.com/locmai/promguard/compare/promguard-v0.2.7...promguard-v0.2.8) (2024-11-07)
+
+
+### Bug Fixes
+
+* remove cache layers ([73a7c8f](https://github.com/locmai/promguard/commit/73a7c8fbae2ae8ad6c5b9279ef91623a13960404))
+
 ## [0.2.7](https://github.com/locmai/promguard/compare/promguard-v0.2.6...promguard-v0.2.7) (2024-11-07)
 
 
