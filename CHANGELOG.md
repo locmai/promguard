@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.7](https://github.com/locmai/promguard/compare/promguard-v0.2.6...promguard-v0.2.7) (2024-11-07)
+
+
+### Bug Fixes
+
+* change base image to scratch and add .dockerignore ([95876fc](https://github.com/locmai/promguard/commit/95876fc9301ad0809b8aa0f49d0d4e65d8b9bb2e))
+
 ## [0.2.6](https://github.com/locmai/promguard/compare/promguard-v0.2.5...promguard-v0.2.6) (2024-10-16)
 
 
