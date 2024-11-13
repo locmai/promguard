@@ -67,7 +67,7 @@ async fn fetch_metrics(url: &str, limit: i32) -> Result<TsdbStatus, Error> {
 
     let endpoint = format!("{}/api/v1/status/tsdb?limit={}", url, limit);
 
-    let response = client.get(&endpoint).send().await?;
+    let response = client.get(endpoint).send().await?;
 
     let tsdb_status: TsdbStatus = response.json().await?;
 
