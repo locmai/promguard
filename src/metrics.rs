@@ -11,7 +11,6 @@ use prometheus_client::encoding::EncodeLabelSet;
 use prometheus_client::metrics::family::Family;
 use prometheus_client::metrics::gauge::Gauge;
 use prometheus_client::registry::Registry;
-use reqwest::Client;
 use reqwest::Error;
 use std::sync::Arc;
 use tokio::sync::Mutex;
@@ -63,11 +62,15 @@ pub fn initialize_registry(mut registry: Registry, config: Config) -> Result<App
 }
 
 async fn fetch_metrics(url: &str, limit: i32) -> Result<TsdbStatus, Error> {
-    let client = Client::new();
+    let client = reqwest::Client::new();
 
     let endpoint = format!("{}/api/v1/status/tsdb?limit={}", url, limit);
 
-    let response = client.get(endpoint).send().await?;
+    let response: reqwest::Response = client.get(endpoint).send().await?;
+
+    if response.status() != 200 {
+        tracing::info!("Error fetching metrics from {}: {}", url, response.status());
+    }
 
     let tsdb_status: TsdbStatus = response.json().await?;
 
