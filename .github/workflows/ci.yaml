@@ -39,7 +39,7 @@ jobs:
       - name: Run clippy
         run: cargo hack clippy --all-targets --feature-powerset --workspace -- --deny warnings
 
-  build-test-aya:
+  build-and-test:
     strategy:
       fail-fast: false
       matrix:
