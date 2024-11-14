@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.9](https://github.com/locmai/promguard/compare/promguard-v0.2.8...promguard-v0.2.9) (2024-11-14)
+
+
+### Bug Fixes
+
+* add trust-dns feature ([9fea750](https://github.com/locmai/promguard/commit/9fea750ab99d18baa03fe58d0e764d43f97f60e4))
+* compose ([7548a6c](https://github.com/locmai/promguard/commit/7548a6c20f6b204e60ecb1a8ca2ccafde24c70a0))
+
 ## [0.2.8](https://github.com/locmai/promguard/compare/promguard-v0.2.7...promguard-v0.2.8) (2024-11-07)
 
 
