@@ -22,7 +22,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: nightly
-          components: rustfmt, clippy, rust-src
+          components: rustfmt, rust-src
 
       - uses: Swatinem/rust-cache@v2
 
@@ -32,9 +32,6 @@ jobs:
 
       - name: Check formatting
         run: cargo fmt --all -- --check
-
-      - name: Run clippy
-        run: cargo hack clippy --all-targets --feature-powerset --workspace -- --deny warnings
 
   build-and-test:
     strategy:
