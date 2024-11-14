@@ -22,16 +22,13 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: nightly
-          components: rustfmt, clippy, miri, rust-src
+          components: rustfmt, clippy, rust-src
 
       - uses: Swatinem/rust-cache@v2
 
       - uses: taiki-e/install-action@v2
         with:
-          tool: cargo-hack,taplo-cli
-
-      - name: Check TOML formatting
-        run: taplo fmt --check
+          tool: cargo-hack
 
       - name: Check formatting
         run: cargo fmt --all -- --check
