@@ -1,4 +1,4 @@
-name: Promguard CI
+name: PromGuard CI
 
 on:
   push:
@@ -15,7 +15,7 @@ env:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
+    name: Lint and Format
     steps:
       - uses: actions/checkout@v4
 
@@ -45,6 +45,7 @@ jobs:
           - powerpc64le-unknown-linux-gnu
           - s390x-unknown-linux-gnu
     runs-on: ubuntu-latest
+    name: Build and Test
     steps:
       - uses: actions/checkout@v4
 
