@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/locmai/promguard/compare/promguard-helm-v1.0.7...promguard-helm-v1.0.8) (2024-11-14)
+
+
+### Bug Fixes
+
+* use fullname for configmap ([91191e8](https://github.com/locmai/promguard/commit/91191e886f79dc18257e40ee66ffce4ab5f16dcd))
+
 ## [1.0.7](https://github.com/locmai/promguard/compare/promguard-helm-v1.0.6...promguard-helm-v1.0.7) (2024-10-15)
 
 
