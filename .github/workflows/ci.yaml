@@ -1,0 +1,75 @@
+name: PromGuard CI
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: '-C target-feature=+crt-static'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint and Format
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: nightly
+          components: rustfmt, rust-src
+
+      - uses: Swatinem/rust-cache@v2
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-hack
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - x86_64-unknown-linux-gnu
+          - aarch64-unknown-linux-gnu
+          - armv7-unknown-linux-gnueabi
+          - riscv64gc-unknown-linux-gnu
+          - powerpc64le-unknown-linux-gnu
+          - s390x-unknown-linux-gnu
+    runs-on: ubuntu-latest
+    name: Build and Test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          targets: ${{ matrix.arch }}
+
+      - uses: Swatinem/rust-cache@v2
+
+      - uses: taiki-e/setup-cross-toolchain-action@v1
+        with:
+          target: ${{ matrix.arch }}
+
+      - name: Build
+        run: |
+          set -euxo pipefail
+          cargo build --target ${{ matrix.arch }} --release
+
+      - name: Test
+        env:
+          RUST_BACKTRACE: full
+        run: |
+          set -euxo pipefail
+          cargo test --target ${{ matrix.arch }} --release
+
+

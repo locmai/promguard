@@ -41,7 +41,10 @@ mod tests {
         // Validate that the deserialization worked correctly
         assert_eq!(parsed_config.prometheus.instances.len(), 1);
         assert_eq!(parsed_config.prometheus.instances[0].name, "prometheus-1");
-        assert_eq!(parsed_config.prometheus.instances[0].url, "https://prometheus.demo.do.prometheus.io");
+        assert_eq!(
+            parsed_config.prometheus.instances[0].url,
+            "https://prometheus.demo.do.prometheus.io"
+        );
         assert_eq!(parsed_config.prometheus.instances[0].limit, 10);
     }
 
@@ -62,8 +65,10 @@ mod tests {
         // Validate that the deserialization worked correctly
         assert_eq!(parsed_config.prometheus.instances.len(), 2);
         assert_eq!(parsed_config.prometheus.instances[1].name, "prometheus-1");
-        assert_eq!(parsed_config.prometheus.instances[1].url, "https://prometheus.demo.do.prometheus.io");
+        assert_eq!(
+            parsed_config.prometheus.instances[1].url,
+            "https://prometheus.demo.do.prometheus.io"
+        );
         assert_eq!(parsed_config.prometheus.instances[1].limit, 15);
     }
-
 }
