@@ -1053,7 +1053,7 @@ dependencies = [
 
 [[package]]
 name = "promguard"
-version = "0.2.9"
+version = "0.2.10"
 dependencies = [
  "axum",
  "clap",

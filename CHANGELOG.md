@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.10](https://github.com/locmai/promguard/compare/promguard-v0.2.9...promguard-v0.2.10) (2024-12-28)
+
+
+### Bug Fixes
+
+* add prefix promguard and rename with camelCase ([ccfaa6a](https://github.com/locmai/promguard/commit/ccfaa6aa239b788999ec1158a33b572a87ece824))
+
 ## [0.2.9](https://github.com/locmai/promguard/compare/promguard-v0.2.8...promguard-v0.2.9) (2024-11-14)
 
 
