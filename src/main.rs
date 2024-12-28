@@ -53,7 +53,7 @@ async fn main() {
     info!("Loaded configuration: {:?}", config);
 
     let state = Arc::new(Mutex::new(
-        initialize_registry(Registry::default(), config).unwrap(),
+        initialize_registry(Registry::with_prefix("promguard"), config).unwrap(),
     ));
     let router = Router::new()
         .route("/metrics", get(metrics_handler))
