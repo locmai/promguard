@@ -7,13 +7,10 @@ pub struct TsdbStatus {
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Data {
-    //pub head_stats: HeadStats,
-    #[serde(rename = "seriesCountByMetricName")]
     pub series_count_by_metric_name: Vec<SeriesCount>,
-    #[serde(rename = "labelValueCountByLabelName")]
-    pub label_count_by_label_name: Vec<SeriesCount>,
-    #[serde(rename = "memoryInBytesByLabelName")]
+    pub label_value_count_by_label_name: Vec<SeriesCount>,
     pub memory_in_bytes_by_label_name: Vec<SeriesCount>,
 }
 
