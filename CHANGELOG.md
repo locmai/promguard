@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.11](https://github.com/locmai/promguard/compare/promguard-v0.2.10...promguard-v0.2.11) (2025-02-05)
+
+
+### Bug Fixes
+
+* bug in the prefix promguard ([73d2d5e](https://github.com/locmai/promguard/commit/73d2d5ea37ee6031f39eb99a71d23e0146bbdaf0))
+
 ## [0.2.10](https://github.com/locmai/promguard/compare/promguard-v0.2.9...promguard-v0.2.10) (2024-12-28)
 
 
