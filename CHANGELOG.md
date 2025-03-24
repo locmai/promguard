@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.12](https://github.com/locmai/promguard/compare/promguard-v0.2.11...promguard-v0.2.12) (2025-03-24)
+
+
+### Bug Fixes
+
+* update Cargo.lock ([cfd6c58](https://github.com/locmai/promguard/commit/cfd6c583bd6c4dc57782912407f7d615365cff1b))
+
 ## [0.2.11](https://github.com/locmai/promguard/compare/promguard-v0.2.10...promguard-v0.2.11) (2025-02-05)
 
 
