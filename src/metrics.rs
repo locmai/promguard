@@ -33,6 +33,7 @@ pub fn initialize_registry(mut registry: Registry, config: Config) -> Result<App
         label_value_count_by_label_name: Family::default(),
         memory_in_bytes_by_label_name: Family::default(),
     };
+    registry.sub_registry_with_prefix("promguard");
     registry.register("status", "TSDB Status", metrics.status.clone());
     registry.register(
         "series_count_by_metric_name",
